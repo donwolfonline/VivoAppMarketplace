@@ -27,7 +27,7 @@
 
                 <div class="col-7 col-stats">
                   <div class="numbers">
-                    <p class="card-category">{{ __('Lifetime Earnings') }}</p>
+                    <p class="card-category">{{ __('الأرباح مدى الحياة') }}</p>
                     <h4 class="card-title">{{ symbolPrice($settings->life_time_earning) }}</h4>
                   </div>
                 </div>
@@ -51,7 +51,7 @@
 
                 <div class="col-7 col-stats">
                   <div class="numbers">
-                    <p class="card-category">{{ __('Total Profit') }}</p>
+                    <p class="card-category">{{ __('إجمالي الأرباح') }}</p>
                     <h4 class="card-title">{{ symbolPrice($settings->total_profit) }}</h4>
                   </div>
                 </div>
@@ -75,7 +75,7 @@
 
                 <div class="col-7 col-stats">
                   <div class="numbers">
-                    <p class="card-category">{{ __('Total Transcation') }}</p>
+                    <p class="card-category">{{ __('إجمالي المعاملات') }}</p>
                     <h4 class="card-title">{{ $total_transaction }}</h4>
                   </div>
                 </div>
@@ -100,7 +100,7 @@
 
                 <div class="col-7 col-stats">
                   <div class="numbers">
-                    <p class="card-category">{{ __('Subscription Log') }}</p>
+                    <p class="card-category">{{ __('سجل الاشتراك') }}</p>
                     <h4 class="card-title">{{ $memberships }}</h4>
                   </div>
                 </div>
@@ -125,7 +125,7 @@
 
                 <div class="col-7 col-stats">
                   <div class="numbers">
-                    <p class="card-category">{{ __('Services') }}</p>
+                    <p class="card-category">{{ __('الخدمات') }}</p>
                     <h4 class="card-title">{{ $services }}</h4>
                   </div>
                 </div>
@@ -150,7 +150,7 @@
 
                 <div class="col-7 col-stats">
                   <div class="numbers">
-                    <p class="card-category">{{ __('Service Orders') }}</p>
+                    <p class="card-category">{{ __('طلبات الخدمة') }}</p>
                     <h4 class="card-title">{{ $serviceOrders }}</h4>
                   </div>
                 </div>
@@ -174,7 +174,7 @@
 
                 <div class="col-7 col-stats">
                   <div class="numbers">
-                    <p class="card-category">{{ __('Support Tickets') }}</p>
+                    <p class="card-category">{{ __('تذاكر الدعم') }}</p>
                     <h4 class="card-title">{{ $support_tickets }}</h4>
                   </div>
                 </div>
@@ -199,7 +199,7 @@
 
                 <div class="col-7 col-stats">
                   <div class="numbers">
-                    <p class="card-category">{{ __('Posts') }}</p>
+                    <p class="card-category">{{ __('المنشورات') }}</p>
                     <h4 class="card-title">{{ $posts }}</h4>
                   </div>
                 </div>
@@ -224,7 +224,7 @@
 
                 <div class="col-7 col-stats">
                   <div class="numbers">
-                    <p class="card-category">{{ __('Sellers') }}</p>
+                    <p class="card-category">{{ __('البائعون') }}</p>
                     <h4 class="card-title">{{ $sellers }}</h4>
                   </div>
                 </div>
@@ -248,7 +248,7 @@
 
                 <div class="col-7 col-stats">
                   <div class="numbers">
-                    <p class="card-category">{{ __('Users') }}</p>
+                    <p class="card-category">{{ __('المستخدمون') }}</p>
                     <h4 class="card-title">{{ $users }}</h4>
                   </div>
                 </div>
@@ -273,7 +273,7 @@
 
                 <div class="col-7 col-stats">
                   <div class="numbers">
-                    <p class="card-category">{{ __('Subscribers') }}</p>
+                    <p class="card-category">{{ __('المشتركون') }}</p>
                     <h4 class="card-title">{{ $subscribers }}</h4>
                   </div>
                 </div>
@@ -291,7 +291,7 @@
     <div class="col-lg-6">
       <div class="card">
         <div class="card-header">
-          <div class="card-title">{{ __('Monthly Subscriptions') }} ({{ date('Y') }})</div>
+          <div class="card-title">{{ __('الاشتراكات الشهرية') }} ({{ date('Y') }})</div>
         </div>
 
         <div class="card-body">
@@ -304,7 +304,7 @@
     <div class="col-lg-6">
       <div class="card">
         <div class="card-header">
-          <div class="card-title">{{ __('Monthly Service Orders') }} ({{ date('Y') }})</div>
+          <div class="card-title">{{ __('طلبات الخدمة الشهرية') }} ({{ date('Y') }})</div>
         </div>
 
         <div class="card-body">
