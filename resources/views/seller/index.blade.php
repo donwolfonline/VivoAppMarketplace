@@ -310,5 +310,6 @@
     const serviceIncomeArr = {!! json_encode($totalServiceIncomes) !!};
   </script>
 
+
   <script type="text/javascript" src="{{ asset('assets/js/my-chart.js') }}"></script>
 @endsection
