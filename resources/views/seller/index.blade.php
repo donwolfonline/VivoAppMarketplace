@@ -2,7 +2,7 @@
 
 @section('content')
   <div class="mt-2 mb-4">
-    <h2 class="pb-2">{{ __('Welcome back,') }} {{ Auth::guard('seller')->user()->username . '!' }}</h2>
+    <h2 class="pb-2">{{ __('مرحبا بك ,') }} {{ Auth::guard('seller')->user()->username . '!' }}</h2>
   </div>
 
   @php
@@ -19,24 +19,24 @@
     <div class="alert alert-warning alert-block">
       @if ($data['status'] == 'false')
         <strong
-          class="text-dark">{{ __('Currently, you have added ' . $data['total_form_added'] . ' forms. ' . 'Your current package supports ' . $data['package_support'] . ' forms. Please delete ' . $data['total_form_added'] - $data['package_support'] . ' forms to enable form management.') }}</strong>
+          class="text-dark">{{ __(' حاليا، لقد قمت بإضافة ' . $data['total_form_added'] . ' forms. ' . 'Your current package supports ' . $data['package_support'] . ' forms. Please delete ' . $data['total_form_added'] - $data['package_support'] . ' forms to enable form management.') }}</strong>
         <br>
       @endif
 
       @if ($data2['status'] == 'false')
         <strong
-          class="text-dark">{{ __('Currently, you have added ' . $data2['total_service_added'] . ' services. ' . 'Your current package supports ' . $data2['package_support'] . ' services. Please delete ' . $data2['total_service_added'] - $data2['package_support'] . ' services to enable service management.') }}</strong>
+          class="text-dark">{{ __(' حاليا، لقد قمت بإضافة ' . $data2['total_service_added'] . ' services. ' . 'Your current package supports ' . $data2['package_support'] . ' services. Please delete ' . $data2['total_service_added'] - $data2['package_support'] . ' services to enable service management.') }}</strong>
         <br>
       @endif
       @if ($data3['status'] == 'false')
         <strong
-          class="text-dark">{{ __('Currently, you have received ' . $data3['total_service_ordered'] . ' Orders. ' . 'Your current package supports ' . $data3['package_support'] . ' services orders. if you want to receive more orders from your customers, then please upgrade the package') }}
+          class="text-dark">{{ __('حاليا، لقد تلقيت ' . $data3['total_service_ordered'] . ' Orders. ' . 'Your current package supports ' . $data3['package_support'] . ' services orders. if you want to receive more orders from your customers, then please upgrade the package') }}
           <a href="{{ route('seller.plan.extend.index') }}">{{ __('from here') }}</a></strong>
         <br>
       @endif
       @if ($data4['status'] == 'false')
         <strong
-          class="text-dark">{{ __('Currently, You have featured ' . $data4['total_service_featured'] . ' services. ' . 'Your current package supports ' . $data4['package_support'] . ' services to make featured. Please unfeatured ' . $data4['total_service_featured'] - $data4['package_support'] . ' services to enable service management') }}</strong>
+          class="text-dark">{{ __('حاليا، لقد قمت بتمييز ' . $data4['total_service_featured'] . ' services. ' . 'Your current package supports ' . $data4['package_support'] . ' services to make featured. Please unfeatured ' . $data4['total_service_featured'] - $data4['package_support'] . ' services to enable service management') }}</strong>
         <br>
       @endif
     </div>
@@ -45,7 +45,7 @@
   @if (Auth::guard('seller')->user()->status == 0 && $admin_setting->seller_admin_approval == 1)
     <div class="mt-2 mb-4">
       <div class="alert alert-danger text-dark">
-        {{ $admin_setting->admin_approval_notice != null ? $admin_setting->admin_approval_notice : 'Your account is deactive!' }}
+        {{ $admin_setting->admin_approval_notice != null ? $admin_setting->admin_approval_notice : 'حسابك غير نشط !' }}
       </div>
     </div>
   @endif
@@ -70,9 +70,9 @@
         {{ __('You have requested a package which needs an action (Approval / Rejection) by Admin. You will be notified via mail once an action is taken.') }}
       </div>
       <div class="alert alert-warning text-dark">
-        <strong>{{ __('Pending Package') . ':' }} </strong> {{ $pendingPackage->title }}
+        <strong>{{ __('الباقة معلقة ') . ':' }} </strong> {{ $pendingPackage->title }}
         <span class="badge badge-secondary">{{ $pendingPackage->term }}</span>
-        <span class="badge badge-warning">{{ __('Decision Pending') }}</span>
+        <span class="badge badge-warning">{{ __('الطلب معلق') }}</span>
       </div>
     @else
       <div class="alert alert-warning text-dark">
@@ -98,7 +98,7 @@
           @if ($current_membership->is_trial == 1)
             ({{ __('Expire Date') . ':' }}
             {{ Carbon\Carbon::parse($current_membership->expire_date)->format('M-d-Y') }})
-            <span class="badge badge-primary">{{ __('Trial') }}</span>
+            <span class="badge badge-primary">{{ __('الفترة التجريبية ') }}</span>
           @else
             ({{ __('Expire Date') . ':' }}
             {{ $current_package->term === 'lifetime' ? 'Lifetime' : Carbon\Carbon::parse($current_membership->expire_date)->format('M-d-Y') }})
@@ -116,7 +116,7 @@
                 {{ $next_package->term === 'lifetime' ? 'Lifetime' : Carbon\Carbon::parse($next_membership->expire_date)->format('M-d-Y') }})
               @endif
               @if ($next_membership->status == 0)
-                <span class="badge badge-warning">{{ __('Decision Pending') }}</span>
+                <span class="badge badge-warning">{{ __('الطلب معلق ') }}</span>
               @endif
             </div>
           @endif
@@ -140,7 +140,7 @@
 
               <div class="col-7 col-stats">
                 <div class="numbers">
-                  <p class="card-category">{{ __('My Balance') }}</p>
+                  <p class="card-category">{{ __('رصيدي ') }}</p>
                   <h4 class="card-title">
                     {{ $settings->base_currency_symbol_position == 'left' ? $settings->base_currency_symbol : '' }}
                     {{ Auth::guard('seller')->user()->amount }}
@@ -165,7 +165,7 @@
 
               <div class="col-7 col-stats">
                 <div class="numbers">
-                  <p class="card-category">{{ __('Transaction') }}</p>
+                  <p class="card-category">{{ __('عملية ') }}</p>
                   <h4 class="card-title">
                     {{ $transcations }}</h4>
                 </div>
@@ -188,7 +188,7 @@
 
               <div class="col-7 col-stats">
                 <div class="numbers">
-                  <p class="card-category">{{ __('Services') }}</p>
+                  <p class="card-category">{{ __('الخدمات ') }}</p>
                   <h4 class="card-title">{{ $services }}</h4>
                 </div>
               </div>
@@ -211,7 +211,7 @@
 
               <div class="col-7 col-stats">
                 <div class="numbers">
-                  <p class="card-category">{{ __('Service Orders') }}</p>
+                  <p class="card-category">{{ __('الطلبات ') }}</p>
                   <h4 class="card-title">{{ $serviceOrders }}</h4>
                 </div>
               </div>
@@ -235,7 +235,7 @@
 
                 <div class="col-7 col-stats">
                   <div class="numbers">
-                    <p class="card-category">{{ __('Subscription Log') }}</p>
+                    <p class="card-category">{{ __('سجل الإشتراك  ') }}</p>
                     <h4 class="card-title">{{ $payment_logs }}</h4>
                   </div>
                 </div>
@@ -259,7 +259,7 @@
 
               <div class="col-7 col-stats">
                 <div class="numbers">
-                  <p class="card-category">{{ __('Support Tickets') }}</p>
+                  <p class="card-category">{{ __('دعم التذاكر') }}</p>
                   <h4 class="card-title">{{ $support_tickets_count }}</h4>
                 </div>
               </div>
@@ -273,7 +273,7 @@
     <div class="col-lg-6">
       <div class="card">
         <div class="card-header">
-          <div class="card-title">{{ __('Month Wise Total Incomes') }} ({{ date('Y') }})</div>
+          <div class="card-title">{{ __('إجمالي الدخل حسب الشهر ') }} ({{ date('Y') }})</div>
         </div>
 
         <div class="card-body">
@@ -287,7 +287,7 @@
     <div class="col-lg-6">
       <div class="card">
         <div class="card-header">
-          <div class="card-title">{{ __('Number of Service Orders') }} ({{ date('Y') }})</div>
+          <div class="card-title">{{ __('عدد طلبات الخدمة') }} ({{ date('Y') }})</div>
         </div>
 
         <div class="card-body">

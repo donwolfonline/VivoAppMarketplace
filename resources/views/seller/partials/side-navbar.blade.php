@@ -16,7 +16,7 @@
           <a data-toggle="collapse" href="#adminProfileMenu" aria-expanded="true">
             <span>
               {{ Auth::guard('seller')->user()->username }}
-              <span class="user-level">Seller</span>
+              <span class="user-level">مقدم الخدمة </span>
               <span class="caret"></span>
             </span>
           </a>
@@ -27,19 +27,21 @@
             <ul class="nav">
               <li>
                 <a href="{{ route('seller.edit.profile') }}">
-                  <span class="link-collapse">Edit Profile</span>
+                  <span class="link-collapse">تغيير الملف الشخصي</span>
                 </a>
               </li>
 
               <li>
                 <a href="{{ route('seller.change_password') }}">
-                  <span class="link-collapse">Change Password</span>
+                  <span class="link-collapse">تغيير كلمة المرور 
+                  </span>
                 </a>
               </li>
 
               <li>
                 <a href="{{ route('seller.logout') }}">
-                  <span class="link-collapse">Logout</span>
+                  <span class="link-collapse">تسجيل الخروج 
+                  </span>
                 </a>
               </li>
             </ul>
@@ -68,7 +70,8 @@
         <li class="nav-item @if (request()->routeIs('seller.dashboard')) active @endif">
           <a href="{{ route('seller.dashboard') }}">
             <i class="fal fa-tachometer-alt-average"></i>
-            <p>Dashboard</p>
+            <p>لوحة التحكم 
+            </p>
           </a>
         </li>
 
@@ -85,7 +88,8 @@
             @elseif (request()->routeIs('seller.service_management.form.edit_input')) active @endif">
           <a data-toggle="collapse" href="#service">
             <i class="fal fa-headset"></i>
-            <p>Service Management</p>
+            <p>إدارة الخدمة 
+            </p>
             <span class="caret"></span>
           </a>
 
@@ -106,13 +110,14 @@
                   @elseif (request()->routeIs('seller.service_management.form.input')) active 
                   @elseif (request()->routeIs('seller.service_management.form.edit_input')) active @endif">
                 <a href="{{ route('seller.service_management.forms', ['language' => $defaultLang->code]) }}">
-                  <span class="sub-item">Forms</span>
+                  <span class="sub-item">النماذج </span>
                 </a>
               </li>
               <li class=" 
                   @if (request()->routeIs('seller.service_management.create_service')) active @endIf">
                 <a href="{{ route('seller.service_management.create_service', ['language' => $defaultLang->code]) }}">
-                  <span class="sub-item">Add Service</span>
+                  <span class="sub-item">إضافة خدمة 
+                  </span>
                 </a>
               </li>
               <li
@@ -122,7 +127,8 @@
                   @elseif (request()->routeIs('seller.service_management.service.addons')) active 
                   @elseif (request()->routeIs('seller.service_management.service.faqs')) active @endIf">
                 <a href="{{ route('seller.service_management.services', ['language' => $defaultLang->code]) }}">
-                  <span class="sub-item">Manage Services</span>
+                  <span class="sub-item">إدارة الخدمات 
+                  </span>
                 </a>
               </li>
             </ul>
@@ -137,7 +143,7 @@
             @elseif (request()->routeIs('seller.service_orders.report')) active @endif">
           <a data-toggle="collapse" href="#service_orders">
             <i class="far fa-cubes"></i>
-            <p>Service Orders</p>
+            <p>الطلبات </p>
             <span class="caret"></span>
           </a>
 
@@ -151,41 +157,45 @@
               <li
                 class="{{ request()->routeIs('seller.service_orders') && empty(request()->input('order_status')) ? 'active' : '' }}">
                 <a href="{{ route('seller.service_orders') }}">
-                  <span class="sub-item">All Orders</span>
+                  <span class="sub-item">جميع الطلبات 
+                  </span>
                 </a>
               </li>
 
               <li
                 class="{{ request()->routeIs('seller.service_orders') && request()->input('order_status') == 'pending' ? 'active' : '' }}">
                 <a href="{{ route('seller.service_orders', ['order_status' => 'pending']) }}">
-                  <span class="sub-item">Pending Orders</span>
+                  <span class="sub-item">الطلبات المعلقة 
+                  </span>
                 </a>
               </li>
 
               <li
                 class="{{ request()->routeIs('seller.service_orders') && request()->input('order_status') == 'processing' ? 'active' : '' }}">
                 <a href="{{ route('seller.service_orders', ['order_status' => 'processing']) }}">
-                  <span class="sub-item">Processing Orders</span>
+                  <span class="sub-item">معالجة الطلبات 
+                  </span>
                 </a>
               </li>
 
               <li
                 class="{{ request()->routeIs('seller.service_orders') && request()->input('order_status') == 'completed' ? 'active' : '' }}">
                 <a href="{{ route('seller.service_orders', ['order_status' => 'completed']) }}">
-                  <span class="sub-item">Completed Orders</span>
+                  <span class="sub-item"> الطلبات المكتملة 
+                  </span>
                 </a>
               </li>
 
               <li
                 class="{{ request()->routeIs('seller.service_orders') && request()->input('order_status') == 'rejected' ? 'active' : '' }}">
                 <a href="{{ route('seller.service_orders', ['order_status' => 'rejected']) }}">
-                  <span class="sub-item">Rejected Orders</span>
+                  <span class="sub-item">الطلبات المرفوضة</span>
                 </a>
               </li>
 
               <li class="{{ request()->routeIs('seller.service_orders.report') ? 'active' : '' }}">
                 <a href="{{ route('seller.service_orders.report') }}">
-                  <span class="sub-item">Report</span>
+                  <span class="sub-item">تقرير </span>
                 </a>
               </li>
             </ul>
@@ -197,7 +207,7 @@
     @elseif (request()->routeIs('seller.qr_codes.saved_codes')) active @endif">
             <a data-toggle="collapse" href="#qr_codes">
               <i class="fal fa-qrcode"></i>
-              <p>QR Codes</p>
+              <p>الكود</p>
               <span class="caret"></span>
             </a>
 
@@ -208,13 +218,14 @@
               <ul class="nav nav-collapse">
                 <li class="{{ request()->routeIs('seller.qr_codes.generate_code') ? 'active' : '' }}">
                   <a href="{{ route('seller.qr_codes.generate_code') }}">
-                    <span class="sub-item">Generate Code</span>
+                    <span class="sub-item"> إنشاء اكود
+                    </span>
                   </a>
                 </li>
 
                 <li class="{{ request()->routeIs('seller.qr_codes.saved_codes') ? 'active' : '' }}">
                   <a href="{{ route('seller.qr_codes.saved_codes') }}">
-                    <span class="sub-item">Saved Codes</span>
+                    <span class="sub-item">حفظ الأكواد </span>
                   </a>
                 </li>
               </ul>
@@ -227,7 +238,7 @@
             @elseif (request()->routeIs('seller.withdraw.create'))  active @endif">
           <a data-toggle="collapse" href="#Withdrawals">
             <i class="fal fa-donate"></i>
-            <p>Withdrawals</p>
+            <p>الخصومات </p>
             <span class="caret"></span>
           </a>
 
@@ -238,13 +249,15 @@
             <ul class="nav nav-collapse">
               <li class="{{ request()->routeIs('seller.withdraw') ? 'active' : '' }}">
                 <a href="{{ route('seller.withdraw', ['language' => $defaultLang->code]) }}">
-                  <span class="sub-item">Withdrawal Requests</span>
+                  <span class="sub-item">طلبات الخصومات
+                  </span>
                 </a>
               </li>
 
               <li class="{{ request()->routeIs('seller.withdraw.create') ? 'active' : '' }}">
                 <a href="{{ route('seller.withdraw.create', ['language' => $defaultLang->code]) }}">
-                  <span class="sub-item">Make a Request</span>
+                  <span class="sub-item">أنشئ طلب 
+                  </span>
                 </a>
               </li>
             </ul>
@@ -256,7 +269,7 @@
         @if (request()->routeIs('seller.transcation')) active @endif">
           <a href="{{ route('seller.transcation') }}">
             <i class="fal fa-lightbulb-dollar"></i>
-            <p>Transactions</p>
+            <p>المعاملات </p>
           </a>
         </li>
         @php
@@ -273,7 +286,8 @@
             @elseif (request()->routeIs('seller.support_ticket.create')) active @endif">
             <a data-toggle="collapse" href="#support_ticket">
               <i class="la flaticon-web-1"></i>
-              <p>Support Tickets</p>
+              <p> دعم التذاكر 
+              </p>
               <span class="caret"></span>
             </a>
 
@@ -287,12 +301,14 @@
                 <li
                   class="{{ request()->routeIs('seller.support_tickets') && empty(request()->input('status')) ? 'active' : '' }}">
                   <a href="{{ route('seller.support_tickets') }}">
-                    <span class="sub-item">All Tickets</span>
+                    <span class="sub-item">جميع التذاكر 
+                    </span>
                   </a>
                 </li>
                 <li class="{{ request()->routeIs('seller.support_ticket.create') ? 'active' : '' }}">
                   <a href="{{ route('seller.support_ticket.create') }}">
-                    <span class="sub-item">Add a Ticket</span>
+                    <span class="sub-item"> إضافة تذكرة 
+                    </span>
                   </a>
                 </li>
               </ul>
@@ -307,13 +323,15 @@
         @elseif (request()->routeIs('seller.plan.extend.checkout')) active @endif">
           <a href="{{ route('seller.plan.extend.index') }}">
             <i class="fal fa-lightbulb-dollar"></i>
-            <p>Buy Plan</p>
+            <p>إشتر الخطة 
+            </p>
           </a>
         </li>
         <li class="nav-item @if (request()->routeIs('seller.subscription_log')) active @endif">
           <a href="{{ route('seller.subscription_log') }}">
             <i class="fas fa-list-ol"></i>
-            <p>Subscription Log</p>
+            <p>سجل الإشتراك 
+            </p>
           </a>
         </li>
 
@@ -321,26 +339,30 @@
         <li class="nav-item @if (request()->routeIs('seller.edit.profile')) active @endif">
           <a href="{{ route('seller.edit.profile') }}">
             <i class="fal fa-user-edit"></i>
-            <p>Edit Profile</p>
+            <p>تغيير الملف الشخصي 
+            </p>
           </a>
         </li>
         <li class="nav-item @if (request()->routeIs('seller.recipient_mail')) active @endif">
           <a href="{{ route('seller.recipient_mail') }}">
             <i class="fal fa-envelope"></i>
-            <p>Recipient Mail</p>
+            <p>بريد المستلم 
+            </p>
           </a>
         </li>
         <li class="nav-item @if (request()->routeIs('seller.change_password')) active @endif">
           <a href="{{ route('seller.change_password') }}">
             <i class="fal fa-key"></i>
-            <p>Change Password</p>
+            <p> تغيير كلمة المرور 
+            </p>
           </a>
         </li>
 
         <li class="nav-item @if (request()->routeIs('seller.logout')) active @endif">
           <a href="{{ route('seller.logout') }}">
             <i class="fal fa-sign-out"></i>
-            <p>Logout</p>
+            <p> تسجيل الخروج 
+            </p>
           </a>
         </li>
 
